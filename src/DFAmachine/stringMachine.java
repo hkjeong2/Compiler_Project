@@ -3,33 +3,41 @@ package DFAmachine;
 import alphabet.*;
 import java.util.ArrayList;
 
-public class stringMachine extends DFAMachine{
+public class stringMachine extends machine {
+
     quot quot = new quot();
     letter letter = new letter();
     digit digit = new digit();
     blank blank = new blank();
-    empty empty = new empty();
+    
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
 
     boolean[] accepted = {false, false, false, false, false, false, false, false, true};
-    alphabet[][] table = {
-            {empty, quot, empty, empty, empty, empty, empty, empty, empty},
-            {empty, empty, letter, digit, blank, empty, empty, empty, empty},
-            {empty, empty, empty, empty, empty, letter, digit, blank, quot},
-            {empty, empty, empty, empty, empty, letter, digit, blank, quot},
-            {empty, empty, empty, empty, empty, letter, digit, blank, quot},
-            {empty, empty, empty, empty, empty, letter, digit, blank, quot},
-            {empty, empty, empty, empty, empty, letter, digit, blank, quot},
-            {empty, empty, empty, empty, empty, letter, digit, blank, quot},
-            {empty, empty, empty, empty, empty, empty, empty, empty, empty},
+    alphabet[] alphabets = {quot, letter, digit, blank};
+    int[][] table = {
+            {1, -1, -1, -1},
+            {-1, 2, 3, 4},
+            {8, 5, 6, 7},
+            {8, 5, 6, 7},
+            {8, 5, 6, 7},
+            {8, 5, 6, 7},
+            {8, 5, 6, 7},
+            {8, 5, 6, 7},
+            {-1, -1, -1, -1}
     };
 
-    public stringMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public stringMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.alphabets = this.alphabets;
+        super.accepted = this.accepted;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
-        token.add("STRING");
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        tokenName.add("STRING");
         tokenValue.add(super.lexeme);
     }
+
 }

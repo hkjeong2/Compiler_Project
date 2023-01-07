@@ -3,27 +3,34 @@ package DFAmachine;
 import alphabet.*;
 import java.util.ArrayList;
 
-public class parenthesisMachine extends DFAMachine{
-    parenthesis parenthesis = new parenthesis();
-    empty empty = new empty();
+public class parenthesisMachine extends machine {
 
-    boolean[] accepted = {false, true, true};
-    alphabet[][] table = {
-            {empty, parenthesis, parenthesis},
-            {empty, empty, empty},
-            {empty, empty, empty},
+    parenthesis parenthesis = new parenthesis();
+    
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
+
+    boolean[] accepted = {false, true};
+    alphabet[] alphabets = {parenthesis};
+    int[][] table = {
+            {1},
+            {-1},
     };
 
-    public parenthesisMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public parenthesisMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.accepted = this.accepted;
+        super.alphabets = this.alphabets;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
         if (super.lexeme.charAt(0) == '{')
-            token.add("L_PARENTHESIS");
+            tokenName.add("L_PARENTHESIS");
         else
-            token.add("R_PARENTHESIS");
+            tokenName.add("R_PARENTHESIS");
         tokenValue.add(super.lexeme);
     }
+
 }

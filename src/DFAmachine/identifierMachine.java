@@ -6,32 +6,38 @@ import alphabet.empty;
 
 import java.util.ArrayList;
 
-public class identifierMachine extends DFAMachine{
+public class identifierMachine extends machine {
 
     letter letter = new letter();
     digit digit = new digit();
-    empty empty = new empty();
+    
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
 
     boolean[] accepted = {false, true, true, true};
-    alphabet[][] table = {
-            {empty, letter, empty, empty},
-            {empty, empty, letter, digit},
-            {empty, empty, letter, digit},
-            {empty, empty, letter, digit},
+    alphabet[] alphabets = {letter, digit};
+    int[][] table = {
+            {1, -1},
+            {2, 3},
+            {2, 3},
+            {2, 3},
     };
 
-    public identifierMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public identifierMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.accepted = this.accepted;
+        super.alphabets = this.alphabets;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
         if (super.lexeme.equals("if") || super.lexeme.equals("else") || super.lexeme.equals("while") || super.lexeme.equals("return"))
-            token.add(super.lexeme.toUpperCase());
+            tokenName.add(super.lexeme.toUpperCase());
         else if (super.lexeme.equals("int") || super.lexeme.equals("char"))
-            token.add("VTYPE");
+            tokenName.add("VTYPE");
         else
-            token.add("ID");
+            tokenName.add("ID");
         tokenValue.add(super.lexeme);
     }
 

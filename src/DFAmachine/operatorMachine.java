@@ -3,26 +3,31 @@ package DFAmachine;
 import alphabet.*;
 import java.util.ArrayList;
 
-public class operatorMachine extends DFAMachine{
-    operator operator = new operator();
-    empty empty = new empty();
+public class operatorMachine extends machine {
 
-    boolean[] accepted = {false, true, true, true, true};
-    alphabet[][] table = {
-            {empty, operator, operator, operator, operator},
-            {empty, empty, empty, empty, empty},
-            {empty, empty, empty, empty, empty},
-            {empty, empty, empty, empty, empty},
-            {empty, empty, empty, empty, empty},
+    operator operator = new operator();
+    
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
+
+    boolean[] accepted = {false, true};
+    alphabet[] alphabets = {operator};
+    int[][] table = {
+            {1},
+            {-1},
     };
 
-    public operatorMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public operatorMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.accepted = this.accepted;
+        super.alphabets = this.alphabets;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
-        token.add("OPERATOR");
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        tokenName.add("OPERATOR");
         tokenValue.add(super.lexeme);
     }
+
 }

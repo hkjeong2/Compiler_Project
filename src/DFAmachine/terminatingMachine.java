@@ -3,23 +3,31 @@ package DFAmachine;
 import alphabet.*;
 import java.util.ArrayList;
 
-public class terminatingMachine extends DFAMachine{
+public class terminatingMachine extends machine {
+
     terminator terminator = new terminator();
-    empty empty = new empty();
+    
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
 
     boolean[] accepted = {false, true};
-    alphabet[][] table = {
-            {empty, terminator},
-            {empty, empty},
+    alphabet[] alphabets = {terminator};
+    int[][] table = {
+            {1},
+            {-1},
     };
 
-    public terminatingMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public terminatingMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.accepted = this.accepted;
+        super.alphabets = this.alphabets;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
-        token.add("SEMICOLON");
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        tokenName.add("SEMICOLON");
         tokenValue.add(super.lexeme);
     }
+
 }

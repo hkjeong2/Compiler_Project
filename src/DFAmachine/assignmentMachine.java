@@ -3,24 +3,29 @@ package DFAmachine;
 import alphabet.*;
 import java.util.ArrayList;
 
-public class assignmentMachine extends DFAMachine{
+public class assignmentMachine extends machine {
 
     assignment assignment = new assignment();
-    empty empty = new empty();
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
 
     boolean[] accepted = {false, true};
-    alphabet[][] table = {
-            {empty, assignment},
-            {empty, empty},
+    alphabet[] alphabets = {assignment};
+    int[][] table = {
+            {1},
+            {-1},
     };
 
-    public assignmentMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public assignmentMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.accepted = this.accepted;
+        super.alphabets = this.alphabets;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
-        token.add("ASSIGNMENT");
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        tokenName.add("ASSIGNMENT");
         tokenValue.add(super.lexeme);
     }
 

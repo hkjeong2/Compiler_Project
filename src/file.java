@@ -26,14 +26,13 @@ public class file {
             BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
 
             for (int i = 0; i < tokenName.size(); i++){
-                bw.write("tokenName = " + "[" + tokenName.get(i) + "]");
-                for (int j = tokenName.get(i).length(); j <= 30 - tokenName.get(i).length(); j++){
+                bw.write(tokenName.get(i));
+                for (int j = tokenName.get(i).length(); j <= 15; j++){
                     bw.append(' ');
                 }
-                bw.append("tokenValue = " + "[").append(tokenValue.get(i)).append("]").append("\n");
+                bw.append(tokenValue.get(i)).append("\n");
             }
             bw.close();
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

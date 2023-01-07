@@ -1,59 +1,57 @@
-tokenName = [VTYPE]                     tokenValue = [int]
-tokenName = [ID]                           tokenValue = [main]
-tokenName = [L_BRACKET]             tokenValue = [(]
-tokenName = [R_BRACKET]             tokenValue = [)]
-tokenName = [L_PARENTHESIS]     tokenValue = [{]
-tokenName = [VTYPE]                     tokenValue = [char]
-tokenName = [ID]                           tokenValue = [if123]
-tokenName = [ASSIGNMENT]           tokenValue = [=]
-tokenName = [INTEGER]                 tokenValue = [1]
-tokenName = [ID]                           tokenValue = [a]
-tokenName = [INTEGER]                 tokenValue = [3]
-tokenName = [ID]                           tokenValue = [b]
-tokenName = [INTEGER]                 tokenValue = [5]
-tokenName = [ID]                           tokenValue = [c]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [VTYPE]                     tokenValue = [int]
-tokenName = [ID]                           tokenValue = [a]
-tokenName = [ASSIGNMENT]           tokenValue = [=]
-tokenName = [INTEGER]                 tokenValue = [0]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [VTYPE]                     tokenValue = [int]
-tokenName = [ID]                           tokenValue = [b]
-tokenName = [ASSIGNMENT]           tokenValue = [=]
-tokenName = [INTEGER]                 tokenValue = [-1062]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [VTYPE]                     tokenValue = [int]
-tokenName = [ID]                           tokenValue = [c]
-tokenName = [ASSIGNMENT]           tokenValue = [=]
-tokenName = [OPERATOR]               tokenValue = [-]
-tokenName = [INTEGER]                 tokenValue = [0]
-tokenName = [INTEGER]                 tokenValue = [250]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [ID]                           tokenValue = [a]
-tokenName = [ASSIGNMENT]           tokenValue = [=]
-tokenName = [ID]                           tokenValue = [a]
-tokenName = [OPERATOR]               tokenValue = [+]
-tokenName = [INTEGER]                 tokenValue = [-1]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [ID]                           tokenValue = [b]
-tokenName = [OPERATOR]               tokenValue = [-]
-tokenName = [ASSIGNMENT]           tokenValue = [=]
-tokenName = [INTEGER]                 tokenValue = [3]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [IF]                           tokenValue = [if]
-tokenName = [L_BRACKET]             tokenValue = [(]
-tokenName = [ID]                           tokenValue = [a]
-tokenName = [ASSIGNMENT]           tokenValue = [=]
-tokenName = [INTEGER]                 tokenValue = [0]
-tokenName = [R_BRACKET]             tokenValue = [)]
-tokenName = [L_PARENTHESIS]     tokenValue = [{]
-tokenName = [RETURN]                   tokenValue = [return]
-tokenName = [INTEGER]                 tokenValue = [1]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [R_PARENTHESIS]     tokenValue = [}]
-tokenName = [ELSE]                       tokenValue = [else]
-tokenName = [RETURN]                   tokenValue = [return]
-tokenName = [INTEGER]                 tokenValue = [0]
-tokenName = [SEMICOLON]             tokenValue = [;]
-tokenName = [R_PARENTHESIS]     tokenValue = [}]
+VTYPE           int
+ID              main
+L_BRACKET       (
+R_BRACKET       )
+L_PARENTHESIS   {
+VTYPE           char
+ID              if123
+ASSIGNMENT      =
+STRING          "12a 34b 56c"
+SEMICOLON       ;
+VTYPE           int
+ID              a
+ASSIGNMENT      =
+INTEGER         0
+SEMICOLON       ;
+VTYPE           int
+ID              b
+ASSIGNMENT      =
+INTEGER         -1062
+SEMICOLON       ;
+VTYPE           int
+ID              c
+ASSIGNMENT      =
+OPERATOR        -
+INTEGER         0
+INTEGER         250
+SEMICOLON       ;
+ID              a
+ASSIGNMENT      =
+ID              a
+OPERATOR        -
+INTEGER         15
+OPERATOR        -
+INTEGER         -10
+SEMICOLON       ;
+ID              b
+OPERATOR        -
+ASSIGNMENT      =
+INTEGER         3
+SEMICOLON       ;
+IF              if
+L_BRACKET       (
+ID              a
+COMPARISON      <=
+INTEGER         0
+R_BRACKET       )
+L_PARENTHESIS   {
+RETURN          return
+INTEGER         -1
+SEMICOLON       ;
+R_PARENTHESIS   }
+ELSE            else
+RETURN          return
+OPERATOR        -
+INTEGER         0
+SEMICOLON       ;
+R_PARENTHESIS   }

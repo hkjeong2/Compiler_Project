@@ -3,23 +3,29 @@ package DFAmachine;
 import alphabet.*;
 import java.util.ArrayList;
 
-public class whiteSpaceMachine extends DFAMachine{
-    whitespaces whitespaces = new whitespaces();
-    empty empty = new empty();
+public class whiteSpaceMachine extends machine {
 
-    boolean[] accepted = {false, true, true, true};
-    alphabet[][] table = {
-            {empty, whitespaces, whitespaces, whitespaces},
-            {empty, empty, empty, empty},
-            {empty, empty, empty, empty},
-            {empty, empty, empty, empty},
+    whitespaces whitespaces = new whitespaces();
+    
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
+
+    boolean[] accepted = {false, true};
+    alphabet[] alphabets = {whitespaces};
+    int[][] table = {
+            {1},
+            {-1},
     };
 
-    public whiteSpaceMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public whiteSpaceMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.accepted = this.accepted;
+        super.alphabets = this.alphabets;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
     }
+
 }

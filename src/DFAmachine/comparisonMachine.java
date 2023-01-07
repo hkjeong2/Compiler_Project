@@ -3,28 +3,34 @@ package DFAmachine;
 import alphabet.*;
 import java.util.ArrayList;
 
-public class comparisonMachine extends DFAMachine{
+public class comparisonMachine extends machine {
+
     comparison comparison = new comparison();
     inequality inequality = new inequality();
     assignment assignment = new assignment();
-    empty empty = new empty();
+    
+    ArrayList<String> tokenName;
+    ArrayList<String> tokenValue;
 
-    boolean[] accepted = {false, false, true, true, true};
-    alphabet[][] table = {
-            {empty, inequality, comparison, empty, empty},
-            {empty, empty, empty, assignment, empty},
-            {empty, empty, empty, empty, assignment},
-            {empty, empty, empty, empty, empty},
-            {empty, empty, empty, empty, empty},
+    boolean[] accepted = {false, true, false, true};
+    alphabet[] alphabets = {comparison, assignment, inequality};
+    int[][] table = {
+            {1, 2, 2},
+            {-1, 3, -1},
+            {-1, 3, -1},
+            {-1, -1, -1},
     };
 
-    public comparisonMachine(){
-        super.accepted = accepted;
-        super.table = table;
+    public comparisonMachine(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        this.tokenName = tokenName;
+        this.tokenValue = tokenValue;
+        super.accepted = this.accepted;
+        super.alphabets = this.alphabets;
+        super.table = this.table;
     }
 
-    public void addToken(ArrayList<String> token, ArrayList<String> tokenValue){
-        token.add("COMPARISON");
+    public void addToken(ArrayList<String> tokenName, ArrayList<String> tokenValue){
+        tokenName.add("COMPARISON");
         tokenValue.add(super.lexeme);
     }
 

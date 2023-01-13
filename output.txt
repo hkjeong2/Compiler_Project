@@ -1,57 +1,109 @@
-VTYPE           int
-ID              main
-L_BRACKET       (
-R_BRACKET       )
-L_PARENTHESIS   {
-VTYPE           char
-ID              if123
-ASSIGNMENT      =
-STRING          "12a 34b 56c"
-SEMICOLON       ;
-VTYPE           int
-ID              a
-ASSIGNMENT      =
-INTEGER         0
-SEMICOLON       ;
-VTYPE           int
-ID              b
-ASSIGNMENT      =
-INTEGER         -1062
-SEMICOLON       ;
-VTYPE           int
-ID              c
-ASSIGNMENT      =
-OPERATOR        -
-INTEGER         0
-INTEGER         250
-SEMICOLON       ;
-ID              a
-ASSIGNMENT      =
-ID              a
-OPERATOR        -
-INTEGER         15
-OPERATOR        -
-INTEGER         -10
-SEMICOLON       ;
-ID              b
-OPERATOR        -
-ASSIGNMENT      =
-INTEGER         3
-SEMICOLON       ;
-IF              if
-L_BRACKET       (
-ID              a
-COMPARISON      <=
-INTEGER         0
-R_BRACKET       )
-L_PARENTHESIS   {
-RETURN          return
-INTEGER         -1
-SEMICOLON       ;
-R_PARENTHESIS   }
-ELSE            else
-RETURN          return
-OPERATOR        -
-INTEGER         0
-SEMICOLON       ;
-R_PARENTHESIS   }
+>>> Lexical Analyzer <<<
+
+Lexical Analyzer has successfully created the following symbol table
+
+vtype           int
+id              main
+lparen          (
+rparen          )
+lbrace          {
+vtype           char
+id              if123
+semi            ;
+id              if123
+assign          =
+literal         "1a 3b 5c"
+semi            ;
+id              a
+assign          =
+num             0
+semi            ;
+id              b
+assign          =
+num             -1062
+semi            ;
+id              c
+assign          =
+operator        -
+num             0
+num             250
+semi            ;
+id              a
+assign          =
+id              a
+operator        +
+num             -1
+semi            ;
+id              b
+assign          =
+num             3
+semi            ;
+if              if
+lparen          (
+id              a
+comp            <=
+num             0
+rparen          )
+lbrace          {
+num             3
+assign          =
+id              a
+semi            ;
+rbrace          }
+else            else
+lbrace          {
+rbrace          }
+return          return
+num             0
+semi            ;
+rbrace          }
+
+>>> Syntax Analyzer <<<
+
+Syntax Analyzer has created the following stack trace
+
+1 : 0 
+2 : 0 vtype 4 
+3 : 0 vtype 4 id 7 
+4 : 0 vtype 4 id 7 lparen 9 
+5 : 0 vtype 4 id 7 lparen 9 ARG 10 
+6 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 
+7 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 
+8 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 vtype 23 
+9 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 vtype 23 id 31 
+10 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 vtype 23 id 31 semi 8 
+11 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 VDECL 19 
+12 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 
+13 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 id 20 
+14 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 id 20 assign 28 
+15 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 id 20 assign 28 literal 40 
+16 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 id 20 assign 28 RHS 38 
+17 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 id 20 assign 28 RHS 38 semi 49 
+18 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 
+19 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 
+20 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 assign 28 
+21 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 assign 28 num 37 
+22 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 assign 28 FACTOR 42 
+23 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 assign 28 TERM 41 
+24 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 assign 28 EXPR 39 
+25 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 assign 28 RHS 38 
+26 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 id 20 assign 28 RHS 38 semi 49 
+27 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 
+28 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 
+29 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 assign 28 
+30 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 assign 28 num 37 
+31 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 assign 28 FACTOR 42 
+32 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 assign 28 TERM 41 
+33 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 assign 28 EXPR 39 
+34 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 assign 28 RHS 38 
+35 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 id 20 assign 28 RHS 38 semi 49 
+36 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 STMT 18 
+37 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 STMT 18 id 20 
+38 : 0 vtype 4 id 7 lparen 9 ARG 10 rparen 12 lbrace 14 STMT 18 STMT 18 STMT 18 STMT 18 id 20 assign 28 
+
+Error : Syntax Analyzer has an error with a token at
+Line : 6
+Index : 9
+Symbol : addsub
+Token Value : -
+The next input token must be one of the following tokens instead: num, id, lparen, literal

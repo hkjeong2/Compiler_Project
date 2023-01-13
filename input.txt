@@ -1,13 +1,14 @@
 int main(){
-    char if123 = "12a 34b 56c";
-    int a = 0;
-    int b = -1062;
-    int c = -0250;
-    a = a -15 --10;
-    b -= 3;
+    char if123;
+    if123 = "1a 3b 5c";
+    a = 0;
+     b = -1062;
+     c = -0250;
+    a = a + -1;
+    b = 3;
     if (a <= 0){
-    	return -1;
-    	}
-    else
-    	return -0;
+    3 = a;
+    }
+    else{}
+    return 0;
 }
